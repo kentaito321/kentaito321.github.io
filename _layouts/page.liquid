@@ -1,24 +1,15 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-description">{{ page.description }}</p>
+<div class="px-6 pt-12 pb-16">
+  <header class="mb-8 md:px-24">
+    <h1 class="text-3xl font-bold capitalize">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="mt-2 font-extralight text-slate-600 dark:text-slate-300">{{ page.description }}</p>
+    {% endif %}
   </header>
 
-  <article>
+  <article class="font-extralight md:px-24">
     {{ content }}
   </article>
-
-  {% if page.related_publications %}
-    <h2>References</h2>
-    <div class="publications">
-      {% bibliography --cited_in_order %}
-    </div>
-  {% endif %}
-
-  {% if site.giscus and page.giscus_comments %}
-    {% include giscus.liquid %}
-  {% endif %}
 </div>

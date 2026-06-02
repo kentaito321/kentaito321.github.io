@@ -1,72 +1,79 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
-  <!-- Head -->
-  <head>
-    {% if page.redirect %}
-      {% if page.redirect == true %}
-        {% assign redirect = site.baseurl | append: '/' %}
-      {% elsif page.redirect contains '://' %}
-        {% assign redirect = page.redirect %}
-      {% else %}
-        {% assign redirect = page.redirect | relative_url %}
-      {% endif %}
-      <meta http-equiv="refresh" content="3; url={{ redirect }}">
-    {% endif %}
-    {% include head.liquid %}
-  </head>
+<html lang="{{ site.lang }}" class="font-sans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <script>
+    // Apply dark mode before render to avoid flash
+    const _stored = localStorage.getItem('theme');
+    const _prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (_stored === 'dark' || (!_stored && _prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
+  <style>
+    @keyframes open-menu {
+      0% { transform: scaleY(0); }
+      80% { transform: scaleY(1.1); }
+      100% { transform: scaleY(1); }
+    }
+    .animate-open-menu { animation: open-menu 0.15s ease-in-out forwards; }
+  </style>
+</head>
+<body class="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-medium">
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    <!-- Header -->
-    {% include header.liquid %}
+  <!-- Header -->
+  <header class="bg-slate-500/50 dark:bg-slate-700/50 sticky top-0 z-10 font-extralight">
+    <section class="backdrop-blur-sm max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <h1 class="text-xl">
+          <a href="{{ '/' | relative_url }}">{{ site.first_name | upcase }} {{ site.last_name | upcase }}</a>
+        </h1>
+      </div>
+      <div class="mr-2">
+        <button id="hamburger-button" class="text-sm md:hidden cursor-pointer relative w-8 h-8">&#9776;</button>
+        <nav class="hidden md:flex items-center space-x-8 text-sm" aria-label="main">
+          <a href="{{ '/projects/' | relative_url }}" class="hover:opacity-70">Projects</a>
+          <a href="{{ '/publications/' | relative_url }}" class="hover:opacity-70">Publications</a>
+          <button id="theme-button" class="hover:opacity-70 cursor-pointer text-slate-900 dark:text-white">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </button>
+        </nav>
+      </div>
+    </section>
+    <!-- Mobile menu -->
+    <section id="mobile-menu" class="fixed hidden inset-0 backdrop-blur-sm justify-center items-start top-14 text-xl animate-open-menu origin-top">
+      <nav class="flex flex-col p-4 w-full mx-4 bg-slate-100 dark:bg-slate-900 border border-gray-300 dark:border-white rounded-xl" aria-label="mobile">
+        <a href="{{ '/projects/' | relative_url }}" class="pb-3 hover:opacity-70">Projects</a>
+        <a href="{{ '/publications/' | relative_url }}" class="pb-3 hover:opacity-70">Publications</a>
+        <div class="flex justify-between items-center">
+          <button id="theme-button" class="hover:opacity-70 cursor-pointer text-slate-900 dark:text-white">
+            <i class="fa-solid fa-circle-half-stroke"></i> Toggle theme
+          </button>
+        </div>
+      </nav>
+    </section>
+  </header>
 
-    <!-- Content -->
-    <div class="container mt-5" role="main">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-          </div>
-        {% else %}
-          <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
-        {% endif %}
-      {% else %}
-        {{ content }}
-      {% endif %}
-    </div>
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto mb-8">
+    {{ content }}
+  </main>
 
-    <!-- Footer -->
-    {% include footer.liquid %}
+  <!-- Footer -->
+  <footer class="text-center text-xs font-extralight text-slate-500 dark:text-slate-400 py-6">
+    &copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.last_name }}.
+    Powered by <a class="underline" href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
+    Hosted by <a class="underline" href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  </footer>
 
-    <!-- JavaScripts -->
-    {% include scripts/jquery.liquid %}
-    {% include scripts/bootstrap.liquid %}
-    {% include scripts/masonry.liquid %}
-    {% include scripts/mermaid.liquid %}
-    {% include scripts/diff2html.liquid %}
-    {% include scripts/leaflet.liquid %}
-    {% include scripts/chartjs.liquid %}
-    {% include scripts/echarts.liquid %}
-    {% include scripts/vega.liquid %}
-    {% include scripts/tikzjax.liquid %}
-    {% include scripts/misc.liquid %}
-    {% include scripts/badges.liquid %}
-    {% include scripts/mathjax.liquid %}
-    {% include scripts/analytics.liquid %}
-    {% include scripts/progressBar.liquid %}
-    {% include scripts/wechatModal.liquid %}
-    {% include scripts/imageLayouts.liquid %}
-  </body>
+</body>
 </html>
