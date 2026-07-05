@@ -61,4 +61,50 @@ layout: default
     {{ content }}
   </section>
 
+  <!-- Projects preview -->
+  <section id="projects-preview" class="w-full max-w-4xl mx-auto md:px-24 px-6 mt-12">
+    <h2 class="text-lg font-semibold mb-6">
+      <a href="{{ '/projects/' | relative_url }}" class="hover:opacity-70">Projects →</a>
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+      <a href="{{ '/projects/' | relative_url }}" class="group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-200">
+        <div class="aspect-square bg-gradient-to-br from-indigo-400 to-violet-500 flex items-end p-3">
+          <span class="text-xs font-mono text-white/70">2025</span>
+        </div>
+        <div class="p-3">
+          <p class="font-semibold text-sm">Project Alpha</p>
+        </div>
+      </a>
+
+      <a href="{{ '/projects/' | relative_url }}" class="group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-200">
+        <div class="aspect-square bg-gradient-to-br from-sky-400 to-cyan-500 flex items-end p-3">
+          <span class="text-xs font-mono text-white/70">2025</span>
+        </div>
+        <div class="p-3">
+          <p class="font-semibold text-sm">Project Beta</p>
+        </div>
+      </a>
+
+      <a href="{{ '/projects/' | relative_url }}" class="group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-200">
+        <div class="aspect-square bg-gradient-to-br from-emerald-400 to-teal-500 flex items-end p-3">
+          <span class="text-xs font-mono text-white/70">2024</span>
+        </div>
+        <div class="p-3">
+          <p class="font-semibold text-sm">Project Gamma</p>
+        </div>
+      </a>
+
+      <a href="{{ '/projects/' | relative_url }}" class="group rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow duration-200">
+        <div class="aspect-square bg-gradient-to-br from-orange-400 to-rose-500 flex items-end p-3">
+          <span class="text-xs font-mono text-white/70">2024</span>
+        </div>
+        <div class="p-3">
+          <p class="font-semibold text-sm">Project Delta</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
 </section>
