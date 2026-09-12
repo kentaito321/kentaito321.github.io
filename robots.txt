@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://kentaito.github.io/sitemap.xml
+Sitemap: https://kentaito321.github.io/sitemap.xml
