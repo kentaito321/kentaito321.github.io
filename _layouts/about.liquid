@@ -79,7 +79,7 @@ layout: default
 
   <!-- Publications -->
   <section id="publications-preview" class="w-full max-w-4xl mx-auto md:px-24 px-6 mt-12">
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4 mb-7">
       <h2 class="text-2xl font-bold">
         <a href="{{ '/publications/' | relative_url }}" class="hover:opacity-70">Publications</a>
       </h2>
@@ -88,6 +88,23 @@ layout: default
 
     {% comment %} Same papers.bib as /publications/, but flat -- no year groups. {% endcomment %}
     {% bibliography --group_by none %}
+  </section>
+
+  <!-- Languages -->
+  <section id="languages" class="w-full max-w-4xl mx-auto md:px-24 px-6 mt-12">
+    <div class="flex items-center gap-4">
+      <h2 class="text-2xl font-bold">Languages</h2>
+      <hr class="flex-1 border-slate-300 dark:border-slate-600">
+    </div>
+
+    <p class="mt-3 text-sm font-extralight text-slate-600 dark:text-slate-300">Listed in the order I learnt them.</p>
+
+    <div class="mt-4 flex flex-wrap gap-2">
+      <span class="rounded-full border border-slate-300 dark:border-slate-600 px-3 py-1 text-sm font-extralight">Japanese</span>
+      <span class="rounded-full border border-slate-300 dark:border-slate-600 px-3 py-1 text-sm font-extralight">Korean</span>
+      <span class="rounded-full border border-slate-300 dark:border-slate-600 px-3 py-1 text-sm font-extralight">English</span>
+      <span class="rounded-full border border-slate-300 dark:border-slate-600 px-3 py-1 text-sm font-extralight">French</span>
+    </div>
   </section>
 
 </section>
