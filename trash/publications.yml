@@ -1,0 +1,39 @@
+# Publications, one entry each. Order here doesn't matter -- they're sorted by
+# `date` (newest first) and grouped by year automatically.
+#
+# Fields:
+#   date    required. YYYY-MM-DD. Drives sort order and which year group it lands in.
+#   venue   the badge text, e.g. "CVPR 2026" or "arXiv 2026".
+#   title   required.
+#   authors plain text, comma separated. Your own name is bolded automatically,
+#           so just write it normally.
+#   new     optional. true adds a "New" badge.
+#   image   optional. Filename in assets/img/publication_preview/.
+#           Omit it and a neutral gradient placeholder is shown instead.
+#   links   optional. Any of: paper, code, project, demo, slides, video, poster.
+#           Each is a URL; only the ones you list get a button.
+
+- date: 2026-03-01
+  venue: Venue 2026
+  new: true
+  title: Placeholder paper title goes here
+  authors: Kenta Ito, Co-Author One, and Co-Author Two
+  links:
+    paper: "#"
+    code: "#"
+    project: "#"
+
+- date: 2025-09-01
+  venue: Venue 2025
+  title: Another placeholder paper title, a little longer to show wrapping
+  authors: Co-Author One, Kenta Ito, and Co-Author Two
+  links:
+    paper: "#"
+    code: "#"
+
+- date: 2025-03-01
+  venue: Venue 2025
+  title: A third placeholder title
+  authors: Kenta Ito and Co-Author One
+  links:
+    paper: "#"

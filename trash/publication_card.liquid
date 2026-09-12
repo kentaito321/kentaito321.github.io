@@ -1,0 +1,60 @@
+{% comment %}
+  A single publication card. Called by publication_cards.liquid with item=<entry>.
+  Edit publications in _data/publications.yml, not here.
+{% endcomment %}
+
+{% assign item = include.item %}
+{% assign self_name = site.first_name | append: ' ' | append: site.last_name %}
+{% capture self_span %}<span class="font-semibold underline underline-offset-2">{{ self_name }}</span>{% endcapture %}
+{% assign authors_html = item.authors | replace: self_name, self_span %}
+
+<article class="flex flex-col sm:flex-row gap-4 rounded-xl border border-slate-200 dark:border-slate-700 p-4 hover:shadow-lg transition-shadow duration-200">
+  <div class="sm:w-48 shrink-0">
+    {% if item.image %}
+      {% assign img_path = item.image | prepend: '/assets/img/publication_preview/' %}
+      <img class="aspect-video w-full rounded-md object-cover" src="{{ img_path | relative_url }}" alt="{{ item.title }}">
+    {% else %}
+      <div class="aspect-video rounded-md bg-gradient-to-br from-slate-200 to-slate-400 dark:from-slate-700 dark:to-slate-800"></div>
+    {% endif %}
+  </div>
+
+  <div class="flex-1 min-w-0">
+    <div class="flex flex-wrap items-center gap-2">
+      {% if item.venue %}
+        <span class="rounded-full border border-slate-400 dark:border-slate-500 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-slate-600 dark:text-slate-300">{{ item.venue }}</span>
+      {% endif %}
+      {% if item.new %}
+        <span class="rounded-full bg-slate-900 dark:bg-white px-2.5 py-0.5 text-[11px] font-medium text-white dark:text-slate-900">New</span>
+      {% endif %}
+    </div>
+
+    <h4 class="mt-2 text-base sm:text-lg font-semibold leading-snug">{{ item.title }}</h4>
+
+    {% if item.authors %}
+      <p class="mt-1 text-sm font-extralight text-slate-600 dark:text-slate-300">{{ authors_html }}</p>
+    {% endif %}
+
+    {% if item.links %}
+      {% assign link_types = 'paper,code,project,demo,slides,video,poster' | split: ',' %}
+      <div class="mt-3 flex flex-wrap gap-2">
+        {% for type in link_types %}
+          {% assign url = item.links[type] %}
+          {% if url %}
+            {% case type %}
+              {% when 'paper' %}{% assign icon = 'fa-solid fa-file-lines' %}{% assign label = 'Paper' %}
+              {% when 'code' %}{% assign icon = 'fa-brands fa-github' %}{% assign label = 'Code' %}
+              {% when 'project' %}{% assign icon = 'fa-solid fa-globe' %}{% assign label = 'Project Page' %}
+              {% when 'demo' %}{% assign icon = 'fa-solid fa-wand-magic-sparkles' %}{% assign label = 'Demo' %}
+              {% when 'slides' %}{% assign icon = 'fa-solid fa-display' %}{% assign label = 'Slides' %}
+              {% when 'video' %}{% assign icon = 'fa-solid fa-video' %}{% assign label = 'Video' %}
+              {% when 'poster' %}{% assign icon = 'fa-solid fa-image' %}{% assign label = 'Poster' %}
+            {% endcase %}
+            <a href="{{ url }}" class="inline-flex items-center gap-1.5 rounded-full border border-slate-300 dark:border-slate-600 px-3 py-1 text-xs uppercase tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+              <i class="{{ icon }}"></i> {{ label }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,32 @@
+{% comment %}
+  Renders news rows from _data/news.yml, newest first.
+  Shared by the homepage (_layouts/about.liquid) and the News page
+  (_pages/news.md), so edits to the data file show up in both.
+
+  Parameters:
+    limit=5       show only the N most recent items (used on the homepage)
+    show_day=true label each row with the full date, e.g. "Aug 7, 2026"
+                  (used on the News page); otherwise just "Aug 2026"
+
+  To add or edit news, edit _data/news.yml -- not this file.
+{% endcomment %}
+
+{% assign news_items = site.data.news | sort: 'date' | reverse %}
+{% if include.limit %}
+  {% assign news_items = news_items | slice: 0, include.limit %}
+{% endif %}
+
+{% if news_items and news_items != empty %}
+  <table class="w-full text-sm font-extralight border-collapse">
+    <tbody>
+      {% for item in news_items %}
+        <tr class="align-top">
+          <th scope="row" class="{% if include.show_day %}w-32{% else %}w-28{% endif %} shrink-0 py-1.5 pr-4 text-left font-semibold whitespace-nowrap">{% if include.show_day %}{{ item.date | date: '%b %-d, %Y' }}{% else %}{{ item.date | date: '%b %Y' }}{% endif %}</th>
+          <td class="py-1.5 text-slate-700 dark:text-slate-200">{{ item.text }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p class="text-sm font-extralight text-slate-500 dark:text-slate-400">No news yet.</p>
+{% endif %}

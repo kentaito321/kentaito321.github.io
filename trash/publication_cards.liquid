@@ -1,0 +1,52 @@
+{% comment %}
+  Renders publications from _data/publications.yml, newest first.
+  Shared by the homepage (_layouts/about.liquid) and the Publications page
+  (_pages/publications.md), so both always show the same list.
+
+  Parameter:
+    group_by_year=true   group into year sections, each with the big faded year
+                         heading and rule (used on the Publications page)
+    omitted              one flat list, no year headings (used on the homepage)
+
+  Sorting and year grouping are derived from each entry's `date`, so adding a
+  publication to the data file is all that's needed -- no section to create.
+
+  To add or edit publications, edit _data/publications.yml -- not this file.
+{% endcomment %}
+
+{% assign publications = site.data.publications | sort: 'date' | reverse %}
+
+{% if publications and publications != empty %}
+
+  {% if include.group_by_year %}
+
+    {% assign year_groups = publications | group_by_exp: 'p', 'p.date | date: "%Y"' %}
+    <div class="space-y-12">
+      {% for group in year_groups %}
+        <section>
+          <div>
+            <h3 class="text-right text-4xl font-bold text-slate-200 dark:text-slate-800 select-none">{{ group.name }}</h3>
+            <hr class="border-slate-200 dark:border-slate-700 mt-2">
+          </div>
+          <div class="flex flex-col gap-4 mt-6">
+            {% for item in group.items %}
+              {% include publication_card.liquid item=item %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+
+  {% else %}
+
+    <div class="flex flex-col gap-4">
+      {% for item in publications %}
+        {% include publication_card.liquid item=item %}
+      {% endfor %}
+    </div>
+
+  {% endif %}
+
+{% else %}
+  <p class="text-sm font-extralight text-slate-500 dark:text-slate-400">No publications yet.</p>
+{% endif %}

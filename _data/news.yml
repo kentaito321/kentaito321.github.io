@@ -1,0 +1,107 @@
+# News items, newest first.
+#
+# To add one, copy a block and edit it. `date` drives both the label shown on
+# the page and the sort order, so keep it a real YYYY-MM-DD date. `text` may
+# contain HTML (links, <em>, emoji) and is rendered as-is.
+#
+# The homepage shows the 5 most recent; /news/ shows all of them.
+
+- date: 2021-08-30
+  text: >-
+    I arrived in Nantes to start my Engineering Course at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.ec-nantes.fr/" target="_blank">&Eacute;cole Centrale de Nantes</a>.
+
+- date: 2021-08-08
+  text: >-
+    I arrived in France to spend my first month in
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.cavilam.com/en/home/" target="_blank">Cavilam</a>,
+    Vichy to learn French so I can order some baguettes.
+
+- date: 2022-07-27
+  text: >-
+    I started working as an operator at &Eacute;lis Clisson for a 7 week stage
+    ouvrier internship.
+
+- date: 2023-04-01
+  text: >-
+    I moved to Valenciennes to work on the new Yaris and Yaris Cross at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.toyota.fr/production-valenciennes" target="_blank">Toyota Motor Manufacturing France</a>
+    as a project management intern on the New Project team, until the end of August.
+
+- date: 2023-08-03
+  text: >-
+    I finally passed my B2 French language requirement with a TCF score of C1
+    (595/699) in Grenoble &mdash; on the third try!
+
+- date: 2023-09-28
+  text: >-
+    I returned to Japan and began my Master&rsquo;s in computer science at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.keio.ac.jp/en/" target="_blank">Keio University</a>
+    under the co-supervision of Prof.
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.keio.ac.jp/en/faculty/k_100011747/" target="_blank">Hideo Saito</a>
+    and Dr.
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://mugichoko445.github.io/" target="_blank">Shohei Mori</a>.
+
+- date: 2023-10-30
+  text: >-
+    I started working at McDonald&rsquo;s so I can force myself to wake up early.
+
+- date: 2024-04-01
+  text: >-
+    I started my part-time internship at Siemens Japan under the Digital Sales
+    Excellence &amp; Inside Digital Sales team.
+
+- date: 2026-03-12
+  text: >-
+    I visited Dr.
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://mugichoko445.github.io/" target="_blank">Shohei Mori</a>
+    at <a class="underline underline-offset-2 hover:opacity-70" href="https://www.visus.uni-stuttgart.de/en/" target="_blank">VISUS</a>,
+    University of Stuttgart, Germany.
+
+- date: 2026-03-10
+  text: >-
+    I presented our accepted work at VISAPP 2026 in Marbella, Spain.
+
+- date: 2026-03-01
+  text: >-
+    My work was accepted at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://doi.org/10.1109/ACCESS.2026.3671877" target="_blank">IEEE Access</a>.
+
+- date: 2025-12-02
+  text: >-
+    I started my two-week internship at Toyota Motor Corporation on anomaly detection.
+
+- date: 2025-11-30
+  text: >-
+    I presented my work at APMAR 2024 and received the Best Presentation Award!
+
+- date: 2025-11-05
+  text: >-
+    I received Best Presentation Recognition for my first accepted work at
+    IECON 2024, Chicago, USA!
+
+- date: 2025-11-01
+  text: >-
+    I had the opportunity to visit and talk to members of the Katerina
+    Fragkiadaki lab at CMU.
+
+- date: 2025-10-01
+  text: >-
+    I started my part-time internship at SAP Japan on the Enterprise Cloud
+    Services team.
+
+- date: 2025-04-01
+  text: >-
+    I started my PhD at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.keio.ac.jp/en/" target="_blank">Keio University</a>.
+
+- date: 2025-03-31
+  text: >-
+    With the completion of my Master&rsquo;s at Keio University, I have officially
+    completed the Engineering Degree at
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://www.ec-nantes.fr/" target="_blank">&Eacute;cole Centrale de Nantes</a>.
+
+- date: 2026-08-07
+  text: >-
+    I presented my work on camera pose estimation with JEPA at MIRU 2026,
+    Nagasaki, Japan.

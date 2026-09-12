@@ -26,6 +26,27 @@
       100% { transform: scaleY(1); }
     }
     .animate-open-menu { animation: open-menu 0.15s ease-in-out forwards; }
+    /* Spacing + link styling for markdown-generated content in the bio */
+    #bio p { margin-top: 1.25rem; }
+    #bio p:first-child { margin-top: 0; }
+    #bio a { text-decoration: underline; text-underline-offset: 2px; }
+    /* jekyll-scholar output. It puts .bib-list on both the year group heading
+       and the container holding the cards, so they're separated by tag here. */
+    div.bib-list { display: flex; flex-direction: column; gap: 1rem; }
+    h3.bib-list {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      text-align: right;
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+      font-weight: 700;
+      color: #e2e8f0;                      /* slate-200 */
+      user-select: none;
+      border-bottom: 1px solid #e2e8f0;    /* slate-200 */
+    }
+    h3.bib-list:first-child { margin-top: 0; }
+    .dark h3.bib-list { color: #1e293b; border-bottom-color: #334155; }
   </style>
 </head>
 <body class="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white font-medium">
@@ -41,7 +62,7 @@
       <div class="mr-2">
         <button id="hamburger-button" class="text-sm md:hidden cursor-pointer relative w-8 h-8">&#9776;</button>
         <nav class="hidden md:flex items-center space-x-8 text-sm" aria-label="main">
-          <a href="{{ '/projects/' | relative_url }}" class="hover:opacity-70">Projects</a>
+          <a href="{{ '/news/' | relative_url }}" class="hover:opacity-70">News</a>
           <a href="{{ '/publications/' | relative_url }}" class="hover:opacity-70">Publications</a>
           <button id="theme-button" class="hover:opacity-70 cursor-pointer text-slate-900 dark:text-white">
             <i class="fa-solid fa-circle-half-stroke"></i>
@@ -52,7 +73,7 @@
     <!-- Mobile menu -->
     <section id="mobile-menu" class="fixed hidden inset-0 backdrop-blur-sm justify-center items-start top-14 text-xl animate-open-menu origin-top">
       <nav class="flex flex-col p-4 w-full mx-4 bg-slate-100 dark:bg-slate-900 border border-gray-300 dark:border-white rounded-xl" aria-label="mobile">
-        <a href="{{ '/projects/' | relative_url }}" class="pb-3 hover:opacity-70">Projects</a>
+        <a href="{{ '/news/' | relative_url }}" class="pb-3 hover:opacity-70">News</a>
         <a href="{{ '/publications/' | relative_url }}" class="pb-3 hover:opacity-70">Publications</a>
         <div class="flex justify-between items-center">
           <button id="theme-button" class="hover:opacity-70 cursor-pointer text-slate-900 dark:text-white">
