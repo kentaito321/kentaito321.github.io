@@ -67,25 +67,25 @@
     My work was accepted at
     <a class="underline underline-offset-2 hover:opacity-70" href="https://doi.org/10.1109/ACCESS.2026.3671877" target="_blank">IEEE Access</a>.
 
-- date: 2025-12-02
+- date: 2024-12-02
   text: >-
     I started my two-week internship at Toyota Motor Corporation on anomaly detection.
 
-- date: 2025-11-30
+- date: 2024-11-30
   text: >-
     I presented my work at APMAR 2024 and received the Best Presentation Award!
 
-- date: 2025-11-05
+- date: 2024-11-05
   text: >-
     I received Best Presentation Recognition for my first accepted work at
     IECON 2024, Chicago, USA!
 
-- date: 2025-11-01
+- date: 2024-11-01
   text: >-
     I had the opportunity to visit and talk to members of the Katerina
     Fragkiadaki lab at CMU.
 
-- date: 2025-10-01
+- date: 2024-10-01
   text: >-
     I started my part-time internship at SAP Japan on the Enterprise Cloud
     Services team.
@@ -105,3 +105,10 @@
   text: >-
     I presented my work on camera pose estimation with JEPA at MIRU 2026,
     Nagasaki, Japan.
+
+- date: 2025-09-01
+  text: >-
+    I attended the
+    <a class="underline underline-offset-2 hover:opacity-70" href="https://paiss.inria.fr/" target="_blank">PAISS summer school</a>
+    in Grenoble, France. It was great to make new friends and meet some of the
+    great researchers.
